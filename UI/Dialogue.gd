@@ -26,3 +26,8 @@ func start_dialogue(d):
 	dialogue = d.duplicate()
 	dialogue_pos = 0
 	hide()
+
+func hide_dialogue():
+	dialogue = []
+	dialogue_pos = 0
+	hide()
