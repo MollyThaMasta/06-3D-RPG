@@ -155,6 +155,7 @@ shape = SubResource( 7 )
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.52721, 0 )
+billboard = 1
 script = ExtResource( 21 )
 
 [node name="Viewport" type="Viewport" parent="Sprite3D"]

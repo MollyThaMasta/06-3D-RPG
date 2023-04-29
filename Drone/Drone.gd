@@ -13,7 +13,11 @@ func _ready():
 	angle = randf() * 2 * PI
 	new_position(angle)
 
-
+func _physics_process(_delta):
+	if get_node("/root/Game/Target_container").get_child_count() == 0:
+		$Sprite3D.show()
+	else:
+		$Sprite3D.hide()
 
 func new_position(a):
 	var pos = Vector3(0,height,0)
@@ -25,10 +29,11 @@ func new_position(a):
 
 
 func die():
-	health -= 10
-	if health <= 0:
-		Global.update_score(100)
-		queue_free()
+	if get_node("/root/Game/Traget_container").get_child_count() == 0:
+		health -= 10
+		if health <= 0:
+			Global.update_score(100)
+			queue_free()
 
 func _on_Tween_tween_all_completed():
 	angle += PI/2 + (randf() * (PI/2))

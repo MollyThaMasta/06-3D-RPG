@@ -39,7 +39,7 @@ script = ExtResource( 2 )
 transform = Transform( -1, 1.51808e-08, -8.60946e-08, 0, 0.984808, 0.173648, 8.74228e-08, 0.173648, -0.984808, 0, 5, -8 )
 
 [node name="RayCast" type="RayCast" parent="Player/Pivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 1.5 )
 enabled = true
 cast_to = Vector3( 0, 0, 100 )
 script = ExtResource( 5 )
@@ -54,7 +54,6 @@ mesh = SubResource( 2 )
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 
 [node name="Target_container" type="Spatial" parent="."]
-visible = false
 
 [node name="Target" parent="Target_container" instance=ExtResource( 4 )]
 transform = Transform( 0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, -32.2291, 4, 9 )
@@ -70,6 +69,11 @@ transform = Transform( -0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, -0.939693, 1
 
 [node name="Target5" parent="Target_container" instance=ExtResource( 4 )]
 transform = Transform( -0.766045, 0, -0.642787, 0, 1, 0, 0.642787, 0, -0.766045, -11.5352, 4.76294, -33.2385 )
+
+[node name="Drone_container" type="Spatial" parent="."]
+
+[node name="Drone" parent="Drone_container" instance=ExtResource( 10 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 20, 100 )
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.9434, 0, -7.89296 )
@@ -132,11 +136,6 @@ anchor_bottom = 1.0
 margin_top = -20.0
 margin_bottom = 10.0
 bbcode_enabled = true
-
-[node name="Drone_container" type="Spatial" parent="."]
-
-[node name="Drone" parent="Drone_container" instance=ExtResource( 10 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 20, 100 )
 
 [connection signal="body_entered" from="NPC/Area" to="NPC" method="_on_Area_body_entered"]
 [connection signal="body_exited" from="NPC/Area" to="NPC" method="_on_Area_body_exited"]
